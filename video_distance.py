@@ -47,7 +47,7 @@ def find_distances(img,model):
 def display(cones,img,show):
     for cone in cones:
         # does not display if confidence is below conf_thresh
-        conf_thresh = 0.5
+        conf_thresh = 0.4
         if cone[2] < conf_thresh:
             continue
         x1, y1, x2, y2 = cone[0]
@@ -122,7 +122,7 @@ def process_webcam(model):
             break
 
         # Pause for 1 second
-        time.sleep(0.1)
+        time.sleep(0.05)
 
     # Release video capture object
     cap.release()
@@ -133,13 +133,12 @@ def process_webcam(model):
 # import model
 model_path = "/Users/william/Downloads/fa23_cone_segmentation.pt"
 model = YOLO(model_path)
-
 # Run process on webcam
 process_webcam(model)
 
 # Specify input and output video paths
-input_video_path = "/Users/william/Downloads/IMG_2163.MOV"
-output_video_path = "/Users/william/Downloads/FILTERED_IMG_2163 .MOV"
+#input_video_path = "/Users/william/Downloads/IMG_2163.MOV"
+#output_video_path = "/Users/william/Downloads/FILTERED_IMG_2163 .MOV"
 
 # Run process on video
 #process_video(input_video_path, output_video_path, model)
